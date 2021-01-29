@@ -17,10 +17,12 @@ def canUnlockAll(boxes):
 
     while lim > con:
         con = 0
-        if (len(listbox[i])) >= len(boxes[i]):
-            sec = len(boxes[i]) - 1
-        else:
+        if len(boxes[i]) == 0:
+            break
+        if len(listbox[i]) < len(boxes[i]):
             sec = len(listbox[i]) - 1
+        else:
+            sec = len(boxes[i]) - 1
         if type(boxes[i][sec]) == int:
             i = boxes[i][sec]
             listbox[i].append(0)
