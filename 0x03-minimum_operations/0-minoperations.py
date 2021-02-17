@@ -16,4 +16,3 @@ def minOperations(n):
         else:
             div = div + 1
     return no
-
