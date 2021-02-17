@@ -33,8 +33,6 @@ def minOperations(n):
             add = str(text)
             cont = cont + 1
         text = text + add
-        cont = cont + 1
-
-    print(text)
+        cont = cont + 1    
 
     return cont - 1
