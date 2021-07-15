@@ -74,7 +74,7 @@ You are not allowed to use malloc, free or arrays
 You can only declare a maximum of two variables in your function
 Note: In order to compile the main file, you are provided with this static library. This library won’t be used during the correction; Its only purpose is for testing.
 
-alexa@ubuntu:~/0x17-find_the_loop$ cat 0-main.c 
+alexa@ubuntu:~/0x17-find_the_loop$ cat 0-main.c
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -151,7 +151,7 @@ alexa@ubuntu:~/0x17-find_the_loop$ ./main
 [0x1370110] 0
 -> [0x1370030] 7
 Loop starts at [0x1370030] 7
-alexa@ubuntu:~/0x17-find_the_loop$ 
+alexa@ubuntu:~/0x17-find_the_loop$
 If you want to use source file instead of the libloop.a library, please use this file lib.c
 
 And compile it with this command: $ gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-find_loop.c lib.c -o main
@@ -161,4 +161,3 @@ Repo:
 GitHub repository: holbertonschool-interview
 Directory: 0x17-find_the_loop
 File: 0-find_loop.c
-   

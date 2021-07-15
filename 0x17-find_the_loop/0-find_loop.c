@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * find_listint_loop - function for loop 
+ * find_listint_loop - function for loop
  * @head: linked list head
  * Return: The node address where loop starts,
  * NULL if no loop
