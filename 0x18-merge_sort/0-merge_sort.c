@@ -1,79 +1,55 @@
 #include "sort.h"
 /**
- * merge
- * @array: array to be merged
- * @l: left
- * @m: mid
- * @r: right
- * Return: Anything
- */
-void merge(int *array, int l, int m, int r)
+ * merge - merge
+ * @array: pointer to array
+ * @size: size of the array
+ * @left: pointer to left array
+ * @right: pointer to right array
+ **/
+void merge(int *array, int *left, int *right, size_t size)
 {
-	int i, j, k;
-	int n1 = m - l + 1;
-	int n2 = r - m;
-	int L[10000], R[10000];
+	int i = 0, j = 0, k = 0;
+	int size_l, size_r;
 
-	for (i = 0; i < n1; i++)
-		L[i] = array[l + i];
-	for (j = 0; j < n2; j++)
-		R[j] = array[m + 1 + j];
-
-	i = 0;
-	j = 0;
-	k = l;
-	while (i < n1 && j < n2)
+	size_l = size / 2;
+	size_r = size - size_l;
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(left, size_l);
+	printf("[right]: ");
+	print_array(right, size_r);
+	while (i < size_l && j < size_r)
 	{
-		if (L[i] <= R[j])
-		{
-			array[k] = L[i];
-			i++;
-		}
+		if (left[i] < right[j])
+			array[k++] = left[i++];
 		else
-		{
-			array[k] = R[j];
-			j++;
-		}
-		k++;
+			array[k++] = right[j++];
 	}
-	while (i < n1)
-	{
-		array[k] = L[i];
-		i++;
-		k++;
-	}
-	while (j < n2)
-	{
-		array[k] = R[j];
-		j++;
-		k++;
-	}
+	while (i < size_l)
+		array[k++] = left[i++];
+	while (j < size_r)
+		array[k++] = right[j++];
+	printf("[Done]: ");
+	print_array(array, size);
 }
 /**
- * sort
- * @array: array to be sorted
- * @l: left
- * @r: right
- * Return: Anything
- */
-void sort(int *array, int l, int r)
-{
-	int m = l + (r - l) / 2;
-
-	if (l < r)
-	{
-		sort(array, l, m);
-		sort(array, m + 1, r);
-		merge(array, l, m, r);
-	}
-}
-/**
- * merge_sort
- * @array: array to be sorted
- * @size: size of array
- * Return: Anything
- */
+ * merge_sort - merge sort
+ * @array: pointer to array
+ * @size: size of the array
+ **/
 void merge_sort(int *array, size_t size)
 {
-	sort(array, 0, size - 1);
+	size_t middle = 0, i;
+	int left[MAX], right[MAX];
+
+	if (array == NULL || size < 2)
+		return;
+	middle = size / 2;
+	for (i = 0; i < middle; i++)
+		left[i] = array[i];
+	for (i = middle; i < size; i++)
+		right[i - middle] = array[i];
+	merge_sort(left, middle);
+	merge_sort(right, size - middle);
+	merge(array, left, right, size);
 }
