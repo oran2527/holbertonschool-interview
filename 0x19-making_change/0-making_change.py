@@ -4,7 +4,7 @@
 
 def makeChange(coins, total):
     """ Making change """
-    
+
     if total <= 0:
         return 0
     coins_dic = {}
