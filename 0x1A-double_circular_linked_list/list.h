@@ -10,7 +10,6 @@
  * @str: string
  * @prev: previous node
  * @next: next node
- * 
  */
 typedef struct List
 {
