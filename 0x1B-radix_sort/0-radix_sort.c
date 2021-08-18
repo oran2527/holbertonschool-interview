@@ -44,7 +44,7 @@ void _count(int *array, int size, int exp)
 }
 
 /**
- * radix_sort - Sorts array 
+ * radix_sort - Sorts array
  * @array: Array
  * @size: Size
  * Return: nothing
